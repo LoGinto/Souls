@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Health : MonoBehaviour
 {
-    public float healthPoints;
+    //only player health
+    public float healthPoints = 100f;
     private float invisibilityAmount;
-    // Update is called once per frame
-
+    // Update is called once per frame  
 
     public void TakeDamage(float damage)
     {

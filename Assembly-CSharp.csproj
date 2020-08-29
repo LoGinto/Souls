@@ -53,10 +53,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\SwordDraw.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\TinyFire VFX\LightControl.cs" />
     <Compile Include="Assets\Scripts\Melee.cs" />
     <Compile Include="Assets\Scripts\Locomotion.cs" />
-    <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\StaminaBar.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Knight\shaders\doublesidedshader.shader" />
