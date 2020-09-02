@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: d3d767d0dcdd583489b7314ef29ecbaa, type: 2}
 --- !u!850595691 &347544585
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383551677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5417657, y: 0.017587662, z: -5.763091}
+  m_LocalPosition: {x: -2.541766, y: 0.017587662, z: -5.7630906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1444324884}
@@ -615,8 +615,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.11208761, y: 0.19010629, z: -0.021852706, w: 0.9750992}
-  m_LocalPosition: {x: 1.8588862, y: 29.66, z: -0.56409}
+  m_LocalRotation: {x: 0.11208761, y: 0.19010632, z: -0.021852713, w: 0.9750992}
+  m_LocalPosition: {x: 1.858886, y: 29.66, z: -0.5640898}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1123084484
 MeshCollider:
@@ -818,7 +818,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135841923}
-  m_LocalRotation: {x: 0.11208759, y: 0.19010626, z: -0.021852702, w: 0.9750992}
+  m_LocalRotation: {x: 0.112087585, y: 0.19010629, z: -0.021852696, w: 0.9750992}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -980,8 +980,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444324882}
-  m_LocalRotation: {x: 0.13238136, y: 0.19393095, z: -0.026421007, w: 0.971683}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.49177095, y: 0.16933426, z: -0.09814891, w: 0.84844214}
+  m_LocalPosition: {x: 0.786942, y: 2, z: 1.89294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1696494248}
@@ -1150,7 +1150,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497394924}
-  m_LocalRotation: {x: 0.096997656, y: 0.19476269, z: -0.019359035, w: 0.9758505}
+  m_LocalRotation: {x: 0.09699761, y: 0.19476274, z: -0.019359032, w: 0.9758505}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4667,7 +4667,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.69, z: 0}
 --- !u!137 &266619933915552009
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -5723,6 +5723,7 @@ GameObject:
   - component: {fileID: 2515329728339176943}
   - component: {fileID: 2515329728331882106}
   - component: {fileID: 2515329728331882104}
+  - component: {fileID: 2515329728331882108}
   - component: {fileID: 2515329728331882102}
   m_Layer: 0
   m_Name: paladin
@@ -5742,9 +5743,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2.6331725
+  m_Height: 2.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8165865, z: 0}
+  m_Center: {x: 0, y: 1.11, z: 0}
 --- !u!1 &2515329728331882103
 GameObject:
   m_ObjectHideFlags: 0
@@ -5778,7 +5779,10 @@ MonoBehaviour:
   bone: {fileID: 2515329728331907683}
   weaponController: {fileID: 22100000, guid: addf41f521fe81849a6cfa34941e10bf, type: 2}
   closeAttackDist: 1.92
+  dashSpeed: 6
+  dashTime: 2
   attackCooldown: 2
+  farAttack: 3
   state: 0
 --- !u!1 &2515329728331882105
 GameObject:
@@ -5835,6 +5839,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!54 &2515329728331882108
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515329728331882101}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2515329728331882109
 GameObject:
   m_ObjectHideFlags: 0
