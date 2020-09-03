@@ -144,5 +144,5 @@ public class SwordEnemy : MonoBehaviour
             return Vector3.Distance(transform.position, selectedObj.position) <= dist;
         }
 
-    }
+}
 

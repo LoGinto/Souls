@@ -36,9 +36,7 @@ public class SwordDraw : MonoBehaviour
             {
                 animator.runtimeAnimatorController = swordOvverride as RuntimeAnimatorController;
                 animator.SetTrigger("Draw");
-                hammer.parent = bone.transform;
-                hammer.transform.localPosition = localPos;
-                hammer.transform.localEulerAngles = euler;
+                
                 //animator.runtimeAnimatorController = swordOvverride as RuntimeAnimatorController;       
             }
             else
@@ -55,5 +53,11 @@ public class SwordDraw : MonoBehaviour
         hammer.parent = chest.transform;
         hammer.transform.localPosition = noWeaponLocalPos;
         hammer.transform.localEulerAngles = noWeaponEuler;
+    }
+    public void Draw()
+    {
+        hammer.parent = bone.transform;
+        hammer.transform.localPosition = localPos;
+        hammer.transform.localEulerAngles = euler;
     }
 }
