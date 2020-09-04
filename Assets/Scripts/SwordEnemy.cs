@@ -53,6 +53,10 @@ public class SwordEnemy : MonoBehaviour
             DrawSword();
             state = State.Agressive;
         }
+        if(player.GetComponent<Health>().DeathState() == true)
+        {
+            state = State.Calm;
+        }
         if (state == State.Agressive)
         {            
             isaWay = Vector3.Distance(transform.position, player.position) > spottingDistance;

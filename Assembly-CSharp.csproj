@@ -53,19 +53,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\SwordDraw.cs" />
+    <Compile Include="Assets\Scripts\PickupSouls.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Mixamo\Melee Axe Pack\Demo\CameraScroll.cs" />
+    <Compile Include="Assets\Scripts\Souls.cs" />
     <Compile Include="Assets\TinyFire VFX\LightControl.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Melee.cs" />
+    <Compile Include="Assets\Scripts\WeaponEnabler.cs" />
     <Compile Include="Assets\Scripts\StaminaBar.cs" />
     <Compile Include="Assets\Scripts\Locomotion.cs" />
     <Compile Include="Assets\Scripts\SwordEnemy.cs" />
-    <Compile Include="Assets\Mixamo\Melee Axe Pack\Demo\CameraScroll.cs" />
-    <Compile Include="Assets\Scripts\WeaponEnabler.cs" />
     <Compile Include="Assets\Scripts\DamageFromEnemy.cs" />
     <Compile Include="Assets\Scripts\EnemyHealth.cs" />
-    <Compile Include="Assets\Scripts\Souls.cs" />
-    <Compile Include="Assets\Scripts\PickupSouls.cs" />
+    <Compile Include="Assets\Scripts\Fireplace.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\paladin\shaders\pbrDoublesided.shader" />

@@ -17,7 +17,7 @@ public class Souls : MonoBehaviour
     }
     public void IncrementSouls(int souls)
     {
-        soulsCount += soulsCount;
+        soulsCount += souls;
     }
     public void NullifySouls()
     {
