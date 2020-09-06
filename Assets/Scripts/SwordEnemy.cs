@@ -74,6 +74,10 @@ public class SwordEnemy : MonoBehaviour
                 nav.SetDestination(player.position * dashSpeed);
             }
         }
+        if(state == State.Calm)
+        {
+            animator.SetTrigger("Idle");
+        }
     }
         void Dash()
         {

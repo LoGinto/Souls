@@ -100,6 +100,10 @@ public class Health : MonoBehaviour
             animator.SetTrigger("Hurt");
             TakeDamage(collision.collider.GetComponent<DamageFromEnemy>().GetDamage());
         }
+        if(collision.collider.tag == "WizProjectile")
+        {
+            Debug.Log("Wizard hit player ");
+        }
     }
     public bool DeathState()
     {
