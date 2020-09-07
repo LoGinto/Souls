@@ -11,15 +11,23 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        snapPosition = player.position;        
+        snapPosition = player.position;
     }
     private void FixedUpdate()
     {
         transform.LookAt(snapPosition);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if(other.tag == "Player")
+        {
+            Debug.Log("I hit player");
+        }
+        Destroy(gameObject, 0.5f);
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject,0.5f);
     }
 }

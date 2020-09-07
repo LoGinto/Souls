@@ -11,9 +11,12 @@ public class WizardEnemy : MonoBehaviour
     [SerializeField] private float farAttackDistance;
     [SerializeField] private float tooClose;
     [SerializeField] private float coolDown;
+    [SerializeField] private float areaCastCooldown = 5f;
     [SerializeField] Transform boneOfProjectile;
     float activeCooldown;
+    float areaCooldown;
     public GameObject[] projectiles;
+    public GameObject areaCastEffect;
     int projectileIndex;
     public enum State
     {
@@ -69,11 +72,27 @@ public class WizardEnemy : MonoBehaviour
         {
             projectileIndex = 0;
         }
-        Instantiate(projectiles[projectileIndex], boneOfProjectile.position, Quaternion.identity);
+        GameObject instance =Instantiate(projectiles[projectileIndex], boneOfProjectile.position, Quaternion.identity);
+        Destroy(instance, 2.5f);
     }
     void NearbyBehavior()
     {
         Debug.Log("Close behavior");
+        if (areaCooldown > 0f)
+        {
+            areaCooldown -= 1f * Time.deltaTime;
+        }
+        else
+        {
+            animator.SetTrigger("AreaCast");
+            areaCooldown = areaCastCooldown;
+        }
+        
+    }
+    public void AreaCast()
+    {
+        GameObject castInstance = Instantiate(areaCastEffect, boneOfProjectile.position, Quaternion.identity);
+        Destroy(castInstance, 3.5f);
     }
     private void OnDrawGizmos()
     {

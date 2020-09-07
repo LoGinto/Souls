@@ -389,7 +389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383551677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6935713, y: -0.07241249, z: -6.0342145}
+  m_LocalPosition: {x: -0.69357157, y: -0.07241249, z: -6.0342145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1444324884}
@@ -876,8 +876,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.11385176, y: -0.04980298, z: 0.005714546, w: 0.99223226}
-  m_LocalPosition: {x: 3.7070806, y: 29.57, z: -0.83521366}
+  m_LocalRotation: {x: 0.11385173, y: -0.04980296, z: 0.0057145418, w: 0.99223226}
+  m_LocalPosition: {x: 3.7070804, y: 29.57, z: -0.83521366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -947,7 +947,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1123084485
@@ -1079,7 +1079,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135841923}
-  m_LocalRotation: {x: 0.11385175, y: -0.04980297, z: 0.005714544, w: 0.99223226}
+  m_LocalRotation: {x: 0.11385172, y: -0.04980294, z: 0.0057145394, w: 0.99223226}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1247,8 +1247,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444324882}
-  m_LocalRotation: {x: 0.0022136027, y: -0.0513139, z: 0.00011373911, w: 0.9986802}
-  m_LocalPosition: {x: -0.07584882, y: -1.0414352, z: 0.7361436}
+  m_LocalRotation: {x: 0.13481434, y: -0.05084429, z: 0.006926988, w: 0.98954135}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1696494248}
@@ -1417,7 +1417,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497394924}
-  m_LocalRotation: {x: 0.09878036, y: -0.05106237, z: 0.0050755027, w: 0.9937853}
+  m_LocalRotation: {x: 0.09878035, y: -0.051062334, z: 0.0050754985, w: 0.9937854}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9039,11 +9039,14 @@ MonoBehaviour:
   spottingDist: 6.79
   farAttackDistance: 6.31
   tooClose: 2.48
-  coolDown: 0
+  coolDown: 3
+  areaCastCooldown: 5
   boneOfProjectile: {fileID: 3040685336466805076}
   projectiles:
-  - {fileID: 3407672248805144502, guid: 7c44e5aa5e2461c42860e2a397bbf4aa, type: 3}
-  - {fileID: 3443262081099218659, guid: 2d170232d0a9fd644ac4da34fc7311c2, type: 3}
+  - {fileID: 8001684646291376462, guid: c606af6e1cf96e3478f5a0929bb219b3, type: 3}
+  - {fileID: 7155933626921914588, guid: a61856048ff56a14cbc1b9c78411422f, type: 3}
+  areaCastEffect: {fileID: 9074581101529049816, guid: c40320746fa964249892923fe3f91c24,
+    type: 3}
   state: 0
 --- !u!195 &3037455227671253427
 NavMeshAgent:
