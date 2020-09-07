@@ -49,6 +49,20 @@ public class WizardEnemy : MonoBehaviour
             {
                 NearbyBehavior();
             }
+            if (!CloseTo(player,spottingDist))
+            {
+                agent.SetDestination(player.position);
+                    agent.isStopped = false;
+                    animator.SetBool("Walk", true);
+                
+            }
+            else if (CloseTo(player, farAttackDistance))
+            {
+                agent.isStopped = true;
+                animator.SetBool("Walk", false);
+            }
+
+
         }
     }
     void RangeAttack()

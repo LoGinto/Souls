@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Fireplace.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Scripts\AreaCast.cs" />
     <Compile Include="Assets\Scripts\SwordDraw.cs" />
     <Compile Include="Assets\Scripts\PickupSouls.cs" />
     <Compile Include="Assets\KY_effects\Script\Lighting.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="Assets\KY_effects\Script\ConGUI.cs" />
     <Compile Include="Assets\Scripts\DamageFromEnemy.cs" />
     <Compile Include="Assets\Scripts\EnemyHealth.cs" />
-    <Compile Include="Assets\Scripts\AreaCast.cs" />
+    <Compile Include="Assets\Scripts\NinjaEnemy.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\paladin\shaders\pbrDoublesided.shader" />
