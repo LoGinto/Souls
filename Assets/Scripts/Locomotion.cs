@@ -12,6 +12,8 @@ public class Locomotion : MonoBehaviour
     [SerializeField] float staminaDrag = 1.5f;
     [SerializeField] float delayBeforeInvinsible = 0.1f;
     [SerializeField] float invisibleDuration = 1f;
+    [SerializeField] float pushFwd = 2f;
+    Rigidbody rb;
     CharacterController characterController;
     Melee melee;
     [SerializeField] float coolDown = 1f;
@@ -27,6 +29,8 @@ public class Locomotion : MonoBehaviour
         myCamera = Camera.main;
         initSpeed = speed;
         maxStamina = stamina;
+        rb = GetComponent<Rigidbody>();
+        Physics.gravity = new Vector3(0, -9.81f, 0);    
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         melee = GetComponent<Melee>();
@@ -52,6 +56,7 @@ public class Locomotion : MonoBehaviour
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Stand To Roll"))
         {
             AnimatorStateInfo currInfo = animator.GetCurrentAnimatorStateInfo(0);
+            rb.AddForce(transform.forward * pushFwd, ForceMode.Force);   
             stamina -= staminaDrag;
             health.Invinsible(delayBeforeInvinsible,currInfo.normalizedTime-delayBeforeInvinsible);
         }

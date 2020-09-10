@@ -11,6 +11,8 @@ public class NinjaEnemy : MonoBehaviour
     [SerializeField] private float spottingDist = 5f;
     [SerializeField] private float tooClose = 2f;
     [SerializeField] private float dashSpeed = 6f;
+    [SerializeField] float attackCD = 4f;
+    float actualCoolDown;
     bool dashed;
     public enum State
     {
@@ -22,6 +24,7 @@ public class NinjaEnemy : MonoBehaviour
     {
         dashed = false;
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
@@ -36,8 +39,43 @@ public class NinjaEnemy : MonoBehaviour
         }
         if(state == State.Agressive)
         {
+            //transform.LookAt(Vector3.Scale(player.position, new Vector3(1, 1, 0)));          
             transform.LookAt(player);
+            if (!CloseTo(player, spottingDist))
+            {
+                dashed = false;
+            }
+            if (dashed&&CloseTo(player,tooClose))
+            {
+                Attack();
+            }
+            if (CloseTo(player, spottingDist) && !CloseTo(player, tooClose))
+            {
+                agent.isStopped = false;
+                animator.SetBool("Walk", true);
+                agent.SetDestination(player.position);
+
+            }
+            else if (CloseTo(player, tooClose))
+            {
+                agent.isStopped = true;
+                animator.SetBool("Walk", false);
+            }
         }
+    }
+   
+    void Attack()
+    {
+        if (actualCoolDown > 0f)
+        {
+            actualCoolDown -= 1f * Time.deltaTime;
+        }
+        else
+        {
+            animator.SetTrigger("SwordCombo");
+            actualCoolDown = attackCD;
+        }
+        
     }
     void FixedUpdate()
     {
@@ -73,5 +111,9 @@ public class NinjaEnemy : MonoBehaviour
     private bool CloseTo(Transform obj, float byDistance)
     {
         return Vector3.Distance(transform.position, obj.position) <= byDistance;
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        rb.angularVelocity = new Vector3(0,0,0);   
     }
 }

@@ -13,6 +13,7 @@ public class WizardEnemy : MonoBehaviour
     [SerializeField] private float coolDown;
     [SerializeField] private float areaCastCooldown = 5f;
     [SerializeField] Transform boneOfProjectile;
+    Rigidbody rb;
     float activeCooldown;
     float areaCooldown;
     public GameObject[] projectiles;
@@ -29,6 +30,7 @@ public class WizardEnemy : MonoBehaviour
         animator = GetComponent<Animator>();  
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -120,5 +122,9 @@ public class WizardEnemy : MonoBehaviour
     private bool CloseTo(Transform obj,float byDistance)
     {
         return Vector3.Distance(transform.position, obj.position) <= byDistance;
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        rb.angularVelocity = new Vector3(0, 0, 0);
     }
 }

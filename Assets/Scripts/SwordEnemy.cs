@@ -151,6 +151,10 @@ public class SwordEnemy : MonoBehaviour
         {
             return Vector3.Distance(transform.position, selectedObj.position) <= dist;
         }
+    private void OnCollisionStay(Collision collision)
+    {
+        rb.angularVelocity = new Vector3(0, 0, 0);
+    }
 
 }
 
