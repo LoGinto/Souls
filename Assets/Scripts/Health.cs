@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public Transform pickupInstanceTransform;
     // Update is called once per frame  
     Animator animator;
+    ColliderToBoss toBoss;
     Souls souls;
     bool isDead;
     private void Awake()
@@ -18,6 +19,7 @@ public class Health : MonoBehaviour
         initAmount = healthPoints;
         animator = GetComponent<Animator>();
         souls = GetComponent<Souls>();
+        toBoss = GameObject.FindGameObjectWithTag("CollBoss1").GetComponent<ColliderToBoss>();
     }
     public void TakeDamage(float damage)
     {
@@ -52,6 +54,7 @@ public class Health : MonoBehaviour
         gameObject.GetComponent<Collider>().enabled = true;
         animator.enabled = true;
         StartCoroutine(Wait());
+        toBoss.SetPass(false);
         animator.SetTrigger("Sit");
         isDead = false;
     }

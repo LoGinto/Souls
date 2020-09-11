@@ -8,6 +8,7 @@ TagManager:
   - PlayerWeapon
   - EnemyWeapon
   - WizProjectile
+  - CollBoss1
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - ColliderToBoss
+  - Player
   - 
   - 
   - 
