@@ -6,27 +6,22 @@ public class ColliderToBoss : MonoBehaviour
 {
     bool passed = false;
     Transform player;
-    [SerializeField] ColliderToBoss toBoss;
+    Boss boss;
+    [SerializeField] GameObject wall;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-    private void Update()
-    {
-        if (!passed)
-        {
-            Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), player.GetComponent<Collider>(),true);           
-        }
-        else
-        {
-            Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), player.GetComponent<Collider>(), false);
-        }
+        wall.SetActive(false);
+        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            toBoss.SetPass(true);
+            wall.SetActive(true);
+            boss.GetCanvasGroup().alpha = 1f;
+            passed = true;
+            Debug.Log("passed to boss");
         }
     }
     IEnumerator Wait()

@@ -9,6 +9,8 @@ TagManager:
   - EnemyWeapon
   - WizProjectile
   - CollBoss1
+  - Boss
+  - HUDIM
   layers:
   - Default
   - TransparentFX

@@ -6,9 +6,10 @@ public class Boss : MonoBehaviour
 {
     public enum Stages
     {
-        Stage1,Stage2,Stage3
+        NoStage,Stage1,Stage2,Stage3
     }
-    public Stages stage = Stages.Stage1;
+    public Stages stage = Stages.NoStage;
+    [Header("UI")]
     public Image healthBar;
     [Header("Floats")]
     public float currentHealth = 100f;
@@ -26,6 +27,7 @@ public class Boss : MonoBehaviour
     Transform player;
     ColliderToBoss toBossColl;
     private float maxHealth;
+    CanvasGroup canvasGroup;
     float actualFarAttackCD;
     float actualCloseAttackCD;
     bool enteredArena = false;
@@ -34,6 +36,8 @@ public class Boss : MonoBehaviour
     void Start()
     {
         maxHealth = currentHealth;
+        canvasGroup = healthBar.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0f;
         toBossColl = GameObject.FindGameObjectWithTag("CollBoss1").GetComponent<ColliderToBoss>();
         healthBar = GetComponent<Image>();
         animator = GetComponent<Animator>();
@@ -43,6 +47,10 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(healthBar == null)
+        {
+            healthBar = GameObject.FindGameObjectWithTag("HUDIM").GetComponent<Image>();
+        }
         StageSwitch();
         if(stage == Stages.Stage1)
         {
@@ -82,7 +90,7 @@ public class Boss : MonoBehaviour
                 actualFarAttackCD = farAttackCD;
             }           
         }
-        else if (!CloseTo(player, farAttackDist) && CloseTo(player, closeAttackDist))
+        else if (CloseTo(player, farAttackDist) && CloseTo(player, closeAttackDist))
         {
             if (actualCloseAttackCD> 0f)
             {
@@ -93,7 +101,14 @@ public class Boss : MonoBehaviour
             {
                 RotateTowardsPlayer(false);
                 int randomNum = Random.Range(1, 3);
-                animator.SetTrigger("atck"+randomNum);
+                if(randomNum != 1) {
+                    animator.SetTrigger("atck1");
+                }
+                else
+                {
+                    animator.SetTrigger("atck2");
+                }
+                
                 actualCloseAttackCD= closeAttackCD;
             }
         }
@@ -137,5 +152,16 @@ public class Boss : MonoBehaviour
     private bool CloseTo(Transform obj, float byDistance)
     {
         return Vector3.Distance(transform.position, obj.position) <= byDistance;
+    }
+    public CanvasGroup GetCanvasGroup()
+    {
+        return canvasGroup;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(transform.position,closeAttackDist);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, farAttackDist);
     }
 }
